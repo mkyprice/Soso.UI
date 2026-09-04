@@ -1,0 +1,16 @@
+{
+    "name": "SosoUIAnimation",
+    "rootNamespace": "Soso.UI.Animation",
+    "references": [
+        "GUID:2581a3c65497b674db018b72b7d97a16"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

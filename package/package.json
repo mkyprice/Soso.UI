@@ -1,0 +1,12 @@
+{
+  "name": "com.chronicvagrant.soso-ui",
+  "version": "1.0.0",
+  "displayName": "Soso.UI",
+  "description": "UI library for animations and utilities",
+  "unity": "6000.3",
+  "author": {
+    "name": "Ky Price",
+    "email": "chronicvagrant@gmail.com",
+    "url": "https://chronicvagrant.com"
+  }
+}
