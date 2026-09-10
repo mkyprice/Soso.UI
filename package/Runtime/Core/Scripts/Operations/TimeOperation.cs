@@ -32,56 +32,7 @@ namespace Soso.UI.Core.Operations
 
         private float GetValue()
         {
-            switch (_easing)
-            {
-                case EASING.Lerp:
-                    return _dt;
-                case EASING.Cubic:
-                    return SosoEasing.Cubic(_dt);
-                
-                case EASING.EaseInQuad:
-                    return SosoEasing.EaseInQuad(_dt);
-                case EASING.EaseOutQuad:
-                    return SosoEasing.EaseOutQuad(_dt);
-                case EASING.EaseInOutQuad:
-                    return SosoEasing.EaseInOutQuad(_dt);
-                
-                case EASING.EaseInCubic:
-                    return SosoEasing.EaseInCubic(_dt);
-                case EASING.EaseOutCubic:
-                    return SosoEasing.EaseOutCubic(_dt);
-                case EASING.EaseInOutCubic:
-                    return SosoEasing.EaseInOutCubic(_dt);
-                
-                case EASING.EaseInQuart:
-                    return SosoEasing.EaseInQuart(_dt);
-                case EASING.EaseOutQuart:
-                    return SosoEasing.EaseOutQuart(_dt);
-                case EASING.EaseInOutQuart:
-                    return SosoEasing.EaseInOutQuart(_dt);
-                
-                case EASING.EaseInBack:
-                    return SosoEasing.EaseInBack(_dt);
-                case EASING.EaseOutBack:
-                    return SosoEasing.EaseOutBack(_dt);
-                case EASING.EaseInOutBack:
-                    return SosoEasing.EaseInOutBack(_dt);
-                
-                case EASING.EaseInElastic:
-                    return SosoEasing.EaseInElastic(_dt);
-                case EASING.EaseOutElastic:
-                    return SosoEasing.EaseOutElastic(_dt);
-                case EASING.EaseInOutElastic:
-                    return SosoEasing.EaseInOutElastic(_dt);
-                
-                case EASING.EaseInBounce:
-                    return SosoEasing.EaseInBounce(_dt);
-                case EASING.EaseOutBounce:
-                    return SosoEasing.EaseOutBounce(_dt);
-                case EASING.EaseInOutBounce:
-                    return SosoEasing.EaseInOutBounce(_dt);
-            }
-            return _dt;
+            return SosoEasing.Ease(_dt, _easing);
         }
     }
 }

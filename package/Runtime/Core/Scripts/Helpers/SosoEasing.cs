@@ -1,9 +1,66 @@
+using Soso.UI.Core.Types;
+using System;
 using UnityEngine;
 
 namespace Soso.UI.Core.Helpers
 {
 	public static class SosoEasing
 	{
+		public static float Ease(float t, EASING easing)
+		{
+            switch (easing)
+            {
+                case EASING.Lerp:
+                    return t;
+                case EASING.Cubic:
+                    return Cubic(t);
+                
+                case EASING.EaseInQuad:
+                    return EaseInQuad(t);
+                case EASING.EaseOutQuad:
+                    return EaseOutQuad(t);
+                case EASING.EaseInOutQuad:
+                    return EaseInOutQuad(t);
+                
+                case EASING.EaseInCubic:
+                    return EaseInCubic(t);
+                case EASING.EaseOutCubic:
+                    return EaseOutCubic(t);
+                case EASING.EaseInOutCubic:
+                    return EaseInOutCubic(t);
+                
+                case EASING.EaseInQuart:
+                    return EaseInQuart(t);
+                case EASING.EaseOutQuart:
+                    return EaseOutQuart(t);
+                case EASING.EaseInOutQuart:
+                    return EaseInOutQuart(t);
+                
+                case EASING.EaseInBack:
+                    return EaseInBack(t);
+                case EASING.EaseOutBack:
+                    return EaseOutBack(t);
+                case EASING.EaseInOutBack:
+                    return EaseInOutBack(t);
+                
+                case EASING.EaseInElastic:
+                    return EaseInElastic(t);
+                case EASING.EaseOutElastic:
+                    return EaseOutElastic(t);
+                case EASING.EaseInOutElastic:
+                    return EaseInOutElastic(t);
+                
+                case EASING.EaseInBounce:
+                    return EaseInBounce(t);
+                case EASING.EaseOutBounce:
+                    return EaseOutBounce(t);
+                case EASING.EaseInOutBounce:
+                    return EaseInOutBounce(t);
+                default:
+	                throw new ArgumentException($"Unknown easing {easing}");
+            }
+		}
+		
 		// Smoothstep
 		public static float Cubic(float t) => t * t * (3.0f - 2.0f * t);
 
