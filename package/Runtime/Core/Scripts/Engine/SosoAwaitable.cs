@@ -12,6 +12,7 @@ namespace Soso.UI.Core.Engine
         {
             get => _parent == null || _parent.IsFinished();
         }
+        public Action OnFinished;
         private readonly ISosoOperation _operation;
         private bool _isFinished;
         private bool _isCanceled;
@@ -56,6 +57,8 @@ namespace Soso.UI.Core.Engine
             _operation.Finish();
 
             SosoUIEngine.Deregister(this);
+            
+            OnFinished?.Invoke();
 
             // Ensure child has starting values
             _child?._operation.Start();

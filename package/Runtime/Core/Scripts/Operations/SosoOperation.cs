@@ -1,4 +1,5 @@
 using Soso.UI.Core.Engine;
+using System;
 using System.Threading;
 using UnityEngine;
 
@@ -20,7 +21,12 @@ namespace Soso.UI.Core.Operations
 		public SosoOperation Then(SosoOperation operation)
 		{
 			Operation.Then(operation.Operation);
-			return operation;
+			return this;
+		}
+		public SosoOperation OnFinished(Action onFinished)
+		{
+			Operation.OnFinished += onFinished;
+			return this;
 		}
 		
 		public abstract void Start();
