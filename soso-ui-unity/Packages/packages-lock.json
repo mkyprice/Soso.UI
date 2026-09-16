@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.chronicvagrant.soso-ui": {
-      "version": "file:/Users/kyp/Desktop/dev/chronic-vagrant/Soso.UI/package",
+      "version": "file:../../package",
       "depth": 0,
       "source": "local",
       "dependencies": {}
@@ -52,12 +52,10 @@
       "dependencies": {}
     },
     "com.unity.ide.rider": {
-      "version": "3.0.40",
+      "version": "3.1.0",
       "depth": 0,
       "source": "registry",
-      "dependencies": {
-        "com.unity.ext.nunit": "1.0.6"
-      },
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
