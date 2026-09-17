@@ -4,31 +4,21 @@ namespace Soso.UI.ColorPalette
 {
     public class SosoPalette : MonoBehaviour
     {
-        [SerializeField] private string _colorGuid;
-        [SerializeField] public SosoColorPalette Palette;
+        [SerializeField] private int _colorIndex;
+        [SerializeField] public SosoColorPalettes palettes;
 
-        public PaletteColor Color
+        public Color Color
         {
             get
             {
-                PaletteColor color = null;
-                if (Palette != null && Palette.Colors != null)
+                Color color = Color.hotPink;
+                ColorPalette activePalette = palettes?.GetActivePalette();
+                int index = _colorIndex;
+                if (activePalette != null && index >= 0 && index < activePalette.Colors.Count)
                 {
-                    foreach (var c in Palette.Colors)
-                    {
-                        if (c.Guid == _colorGuid)
-                        {
-                            color = c;
-                            break;
-                        }
-                    }
+                    color = activePalette.Colors[index];
                 }
                 return color;
-            }
-            set
-            {
-                _colorGuid = value.Guid;
-                Refresh();
             }
         }
 
@@ -50,27 +40,32 @@ namespace Soso.UI.ColorPalette
 
         public Color GetColor()
         {
-            if (Palette == null)
+            if (palettes == null)
             {
-                var palettes = Resources.FindObjectsOfTypeAll<SosoColorPalette>();
+                var palettes = Resources.FindObjectsOfTypeAll<SosoColorPalettes>();
                 if (palettes.Length > 0)
                 {
-                    Palette = palettes[0];
+                    this.palettes = palettes[0];
                 }
             }
+
+            var myPalette = palettes.GetActivePalette();
             
-            if (Palette == null || Palette.Colors == null || Palette.Colors.Count == 0)
+            if (myPalette == null || myPalette.Colors == null || myPalette.Colors.Count == 0)
             {
-                return UnityEngine.Color.white;
+                Debug.LogWarning("No active palette found.");
+                return Color.white;
+            }
+
+            int index = _colorIndex;
+
+            if (index < 0 || index >= myPalette.Colors.Count)
+            {
+                Debug.LogWarning($"Color index {index} out of range");
+                return Color.white;
             }
             
-            int index = Palette.Colors.FindIndex(color => color.Guid == _colorGuid);
-            if (index == -1)
-            {
-                return UnityEngine.Color.white;
-            }
-            
-            return Palette.Colors[index].Color;
+            return myPalette.Colors[index];
         }
 
         protected virtual void SetColor(Color color)

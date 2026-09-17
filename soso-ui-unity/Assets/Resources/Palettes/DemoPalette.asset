@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba453b162615494aa9988c8070fc3b6c, type: 3}
+  m_Name: DemoPalette
+  m_EditorClassIdentifier: SosoUIColorPalette::Soso.UI.ColorPalette.SosoColorPalette
+  ActivePaletteIndex: 0
+  Palettes:
+  - Name: Test
+    Colors:
+    - {r: 0.90196085, g: 0.92549026, b: 0.93725497, a: 1}
+    - {r: 0.69803923, g: 0.69411767, b: 0.75294125, a: 1}
+    - {r: 0.35686275, g: 0.30980393, b: 0.43137258, a: 1}
+    - {r: 0.15686275, g: 0.027450982, b: 0.19607845, a: 1}
+    - {r: 0.882353, g: 0.36862746, b: 0.43137258, a: 1}
+    - {r: 0.95294124, g: 0.65882355, b: 0.65882355, a: 1}
+    - {r: 0.43921572, g: 0.5803922, b: 0.94117653, a: 1}
+    - {r: 0.67058825, g: 0.78823537, b: 0.9450981, a: 1}
+  - Name: Hello
+    Colors:
+    - {r: 0.04705883, g: 0.04705883, b: 0.04705883, a: 1}
+    - {r: 0.15294118, g: 0.2392157, b: 0.85098046, a: 1}
+    - {r: 0, g: 0.46274513, b: 0.21960786, a: 1}
+    - {r: 1, g: 0.24705884, b: 0.078431375, a: 1}
+    - {r: 0.89019614, g: 0.7803922, b: 0.16862746, a: 1}
+    - {r: 1, g: 0.6901961, b: 0.5019608, a: 1}
+    - {r: 0.5803922, g: 0.7019608, b: 1, a: 1}
+    - {r: 1, g: 0.8470589, b: 0.8000001, a: 1}
+  - Name: Not a great palette
+    Colors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
