@@ -1,6 +1,6 @@
 {
   "name": "com.chronicvagrant.soso-ui",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "displayName": "Soso.UI",
   "description": "UI library for animations and utilities",
   "unity": "6000.3",

@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SosoUIColorPalette::Soso.UI.ColorPalette.ImagePalette
   _colorPalette: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  color:
+  _color:
     _colorIndex: 3
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
 --- !u!114 &880986105
@@ -834,22 +834,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  NormalColor:
-    _colorIndex: 2
-    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  HighlightedColor:
+  _normalColor:
     _colorIndex: 4
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  DisabledColor:
-    _colorIndex: 1
-    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  PressedColor:
+  _highlightedColor:
     _colorIndex: 5
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  SelectedColor:
+  _disabledColor:
+    _colorIndex: 1
+    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
+  _pressedColor:
+    _colorIndex: 7
+    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
+  _selectedColor:
     _colorIndex: 6
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
   _colorPalette: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
+  StateChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1463327315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.35686275, g: 0.30980393, b: 0.43137258, a: 1}
+  m_Color: {r: 0.882353, g: 0.36862746, b: 0.43137258, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -971,22 +974,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  NormalColor:
-    _colorIndex: 2
-    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  HighlightedColor:
+  _normalColor:
     _colorIndex: 4
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  DisabledColor:
-    _colorIndex: 1
-    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  PressedColor:
+  _highlightedColor:
     _colorIndex: 5
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  SelectedColor:
+  _disabledColor:
+    _colorIndex: 1
+    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
+  _pressedColor:
+    _colorIndex: 7
+    _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
+  _selectedColor:
     _colorIndex: 6
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
   _colorPalette: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
+  StateChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1822501064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,7 +1006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.35686275, g: 0.30980393, b: 0.43137258, a: 1}
+  m_Color: {r: 0.882353, g: 0.36862746, b: 0.43137258, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1092,8 +1098,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294035883
-  m_fontColor: {r: 0.67058825, g: 0.78823537, b: 0.9450981, a: 1}
+    rgba: 4293956720
+  m_fontColor: {r: 0.43921572, g: 0.5803922, b: 0.94117653, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1176,8 +1182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SosoUIColorPalette::Soso.UI.ColorPalette.TMPTextPalette
   _colorPalette: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
-  color:
-    _colorIndex: 7
+  _color:
+    _colorIndex: 6
     _palettes: {fileID: 11400000, guid: 0f87cc12751ace5448c02e459e0d21fb, type: 2}
 --- !u!1 &1977833452
 GameObject:

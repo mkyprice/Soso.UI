@@ -11,7 +11,6 @@ namespace Soso.UI.ColorPalette
 
         public SosoColor()
         {
-            
         }
 
         public SosoColor(SosoColorPalettes palettes)
@@ -47,7 +46,7 @@ namespace Soso.UI.ColorPalette
             if (myPalette == null || myPalette.Colors == null || myPalette.Colors.Count == 0)
             {
                 Debug.LogWarning("No active palette found.");
-                return Color.white;
+                return Color.hotPink;
             }
 
             int index = _colorIndex;
@@ -55,7 +54,7 @@ namespace Soso.UI.ColorPalette
             if (index < 0 || index >= myPalette.Colors.Count)
             {
                 Debug.LogWarning($"Color index {index} out of range");
-                return Color.white;
+                return Color.hotPink;
             }
             
             return myPalette.Colors[index];

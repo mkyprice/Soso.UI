@@ -10,10 +10,6 @@ namespace Soso.UI.ColorPalette
 		
 		public IEnumerable<SosoColor> GetColors();
 
-		public Color GetColor();
-
-		public void SetColor(Color color);
-
 		public static void Validate(IPaletteComponent palette)
 		{
 #if UNITY_EDITOR
@@ -27,7 +23,7 @@ namespace Soso.UI.ColorPalette
 			}
 			foreach (var color in palette.GetColors())
 			{
-				color?.SetPalettes(palette.ColorPalette);
+				color.SetPalettes(palette.ColorPalette);
 			}
 #endif
 			palette.Refresh();

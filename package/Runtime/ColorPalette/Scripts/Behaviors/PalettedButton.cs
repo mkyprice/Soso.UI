@@ -10,15 +10,56 @@ namespace Soso.UI.ColorPalette
 	[RequireComponent(typeof(Image))]
 	public class PalettedButton : Button, IPaletteComponent
 	{
-		[SerializeField] public SosoColor NormalColor;
-		[SerializeField] public SosoColor HighlightedColor;
-		[SerializeField] public SosoColor DisabledColor;
-		[SerializeField] public SosoColor PressedColor;
-		[SerializeField] public SosoColor SelectedColor;
+		[SerializeField] private SosoColor _normalColor;
+		[SerializeField] private SosoColor _highlightedColor;
+		[SerializeField] private SosoColor _disabledColor;
+		[SerializeField] private SosoColor _pressedColor;
+		[SerializeField] private SosoColor _selectedColor;
 		[SerializeField] private SosoColorPalettes _colorPalette;
 		[SerializeField] public ButtonStateChangedEvent StateChanged;
 		public SosoColorPalettes ColorPalette { get => _colorPalette; set => _colorPalette = value; }
 		public SELECTION_STATE State => (SELECTION_STATE)base.currentSelectionState;
+
+		public SosoColor NormalColor
+		{
+			get
+			{
+				_normalColor ??= new SosoColor(_colorPalette);
+				return _normalColor;
+			}
+		}
+		public SosoColor HighlightedColor
+		{
+			get
+			{
+				_highlightedColor ??= new SosoColor(_colorPalette);
+				return _highlightedColor;
+			}
+		}
+		public SosoColor DisabledColor
+		{
+			get
+			{
+				_disabledColor ??= new SosoColor(_colorPalette);
+				return _disabledColor;
+			}
+		}
+		public SosoColor PressedColor
+		{
+			get
+			{
+				_pressedColor ??= new SosoColor(_colorPalette);
+				return _pressedColor;
+			}
+		}
+		public SosoColor SelectedColor
+		{
+			get
+			{
+				_selectedColor ??= new SosoColor(_colorPalette);
+				return _selectedColor;
+			}
+		}
 		
 		protected override void Awake()
 		{

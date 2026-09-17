@@ -4,8 +4,8 @@ using UnityEngine.UIElements;
 
 namespace Soso.UI.ColorPalette.Editor
 {
-	[CustomEditor(typeof(IPaletteComponent), true), CanEditMultipleObjects]
-	public class PaletteComponentEditor : UnityEditor.Editor
+	[CustomEditor(typeof(SingleColorComponent), true), CanEditMultipleObjects]
+	public class SingleColorComponentEditor : UnityEditor.Editor
 	{
 		public override VisualElement CreateInspectorGUI()
 		{
@@ -21,7 +21,7 @@ namespace Soso.UI.ColorPalette.Editor
             {
 				foreach (var t in targets)
 				{
-					if (t is BasePaletteComponent palette)
+					if (t is IPaletteComponent palette)
 					{
 						palette.Refresh();
 					}

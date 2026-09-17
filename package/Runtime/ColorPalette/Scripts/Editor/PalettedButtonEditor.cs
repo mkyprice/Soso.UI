@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 namespace Soso.UI.ColorPalette.Editor
 {
 	[CustomEditor(typeof(PalettedButton))]
+    [CanEditMultipleObjects]
 	public class PalettedButtonEditor : ButtonEditor
 	{
 		public override VisualElement CreateInspectorGUI()
@@ -26,11 +27,11 @@ namespace Soso.UI.ColorPalette.Editor
         root.Add(visualizeContainer);
 
         // Add colors
-        AddPaletteButton(root, nameof(PalettedButton.NormalColor), "Normal");
-        AddPaletteButton(root, nameof(PalettedButton.HighlightedColor), "Highlighted");
-        AddPaletteButton(root, nameof(PalettedButton.PressedColor), "Pressed");
-        AddPaletteButton(root, nameof(PalettedButton.SelectedColor), "Selected");
-        AddPaletteButton(root, nameof(PalettedButton.DisabledColor), "Disabled");
+        AddPaletteButton(root, "_normalColor", "Normal");
+        AddPaletteButton(root, "_highlightedColor", "Highlighted");
+        AddPaletteButton(root, "_pressedColor", "Pressed");
+        AddPaletteButton(root, "_selectedColor", "Selected");
+        AddPaletteButton(root, "_disabledColor", "Disabled");
         
         // Add the palette
         root.Add(new PropertyField(serializedObject.FindProperty("_colorPalette")));
@@ -40,17 +41,33 @@ namespace Soso.UI.ColorPalette.Editor
         
         // State changed
         root.Add(new PropertyField(serializedObject.FindProperty(nameof(PalettedButton.StateChanged))));
+        
+        // Refresh
+        var refreshButton = new Button(() => 
+            {
+                foreach (var t in targets)
+                {
+                    if (t is IPaletteComponent palette)
+                    {
+                        palette.Refresh();
+                    }
+                }
+            })
+            {
+                text = "Refresh"
+            };
+        root.Add(refreshButton);
 
         return root;
     }
 
-    private void AddPaletteButton(VisualElement root, string name, string tooltip)
+    private void AddPaletteButton(VisualElement root, string propName, string tooltip)
     {
         root.Add(new TextElement()
         {
             text = tooltip,
         });
-        root.Add(new PropertyField(serializedObject.FindProperty(name)));
+        root.Add(new PropertyField(serializedObject.FindProperty(propName)));
     }
 
     private void DrawNativeVisualizeButton()
