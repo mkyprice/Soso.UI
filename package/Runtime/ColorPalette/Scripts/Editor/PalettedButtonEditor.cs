@@ -37,6 +37,9 @@ namespace Soso.UI.ColorPalette.Editor
         
         // Add the click event
         root.Add(new PropertyField(serializedObject.FindProperty("m_OnClick")));
+        
+        // State changed
+        root.Add(new PropertyField(serializedObject.FindProperty(nameof(PalettedButton.StateChanged))));
 
         return root;
     }

@@ -1,3 +1,5 @@
+using Soso.UI.ColorPalette.Events;
+using Soso.UI.Core.Types;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +16,9 @@ namespace Soso.UI.ColorPalette
 		[SerializeField] public SosoColor PressedColor;
 		[SerializeField] public SosoColor SelectedColor;
 		[SerializeField] private SosoColorPalettes _colorPalette;
+		[SerializeField] public ButtonStateChangedEvent StateChanged;
 		public SosoColorPalettes ColorPalette { get => _colorPalette; set => _colorPalette = value; }
+		public SELECTION_STATE State => (SELECTION_STATE)base.currentSelectionState;
 		
 		protected override void Awake()
 		{
@@ -74,6 +78,7 @@ namespace Soso.UI.ColorPalette
 		{
 			base.DoStateTransition(state, instant);
 			Refresh();
+			StateChanged.Invoke(State);
 		}
 	}
 }
