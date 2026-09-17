@@ -1,14 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Soso.UI.ColorPalette
 {
     [RequireComponent(typeof(RawImage))]
-    public class RawImagePalette : SosoPalette
+    public class RawImagePalette : BasePaletteComponent
     {
+        [SerializeField] public SosoColor color;
+        
         private RawImage _image;
         
-        protected override void SetColor(Color color)
+        public override IEnumerable<SosoColor> GetColors()
+        {
+            yield return color;
+        }
+
+        public override Color GetColor()
+        {
+            return color.GetColor();
+        }
+        
+        public override void SetColor(Color color)
         {
             if (_image == null)
             {

@@ -3,32 +3,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Soso.UI.ColorPalette.Editor
 {
-    [CustomEditor(typeof(SosoPalette), true), CanEditMultipleObjects]
-    public class SosoPaletteEditor : UnityEditor.Editor
+    [CustomPropertyDrawer(typeof(SosoColor))]
+    public class SosoColorEditor : PropertyDrawer
     {
-        public override VisualElement CreateInspectorGUI()
+        public override VisualElement CreatePropertyGUI(SerializedProperty serializedProperty)
         {
             VisualElement root = new VisualElement();
 
             // Props
-            SerializedProperty animationsProp = serializedObject.FindProperty(nameof(SosoPalette.palettes));
-            SerializedProperty colorIndexProp = serializedObject.FindProperty("_colorIndex");
-
-            // Serialize colors
-            PropertyField animationsField = new PropertyField(animationsProp);
-            root.Add(animationsField);
+            SerializedProperty colorIndexProp = serializedProperty.FindPropertyRelative("_colorIndex");
 
             // Colors dropdown
-            var primaryPalette = target as SosoPalette;
-            if (primaryPalette != null && primaryPalette.palettes?.Palettes?.Count > 0)
+            if (serializedProperty.boxedValue is SosoColor primaryPalette)
             {
-                var palette = primaryPalette.palettes.GetActivePalette();
+                var palette = primaryPalette.GetActivePalette();
                 if (palette != null)
                 {
                     // TODO: Don't use Linq
@@ -43,34 +36,18 @@ namespace Soso.UI.ColorPalette.Editor
                     colorContainer.style.marginTop = 4;
                     colorContainer.style.marginBottom = 4;
                     root.Add(colorContainer);
-                    RefreshColorButtons(colorContainer, colorHex, selectedIndex, colorIndexProp);
+                    RefreshColorButtons(serializedProperty, colorContainer, colorHex, selectedIndex, colorIndexProp);
                 }
             }
-
-            // Refresh
-            var refreshButton = new Button(() =>
-            {
-                foreach (var t in targets)
-                {
-                    if (t is SosoPalette palette)
-                    {
-                        palette.Refresh();
-                    }
-                }
-            })
-            {
-                text = "Refresh"
-            };
-            root.Add(refreshButton);
 
             return root;
         }
 
-        private void RefreshColorButtons(VisualElement colorContainer, List<string> hexColors, int selectedIndex, SerializedProperty colorIndexProp)
+        private void RefreshColorButtons(SerializedProperty serializedProperty, VisualElement colorContainer, List<string> hexColors, int selectedIndex, SerializedProperty colorIndexProp)
         {
             colorContainer.Clear();
 
-            const int BUTTON_SIZE = 64;
+            const int BUTTON_SIZE = 48;
             const int BUTTON_MARGIN = 0;
 
             var currRow = new VisualElement();
@@ -129,7 +106,7 @@ namespace Soso.UI.ColorPalette.Editor
                     var colorLabel = new TextElement();
                     string hexNoAlpha = hex.Substring(0, Mathf.Min(6, hex.Length));
                     colorLabel.text = $"{index + 1}) #{hexNoAlpha}";
-                    colorLabel.style.fontSize = 10;
+                    colorLabel.style.fontSize = 8;
                     colorLabel.style.color = Color.antiqueWhite;
                     colorLabel.style.maxWidth = BUTTON_SIZE;
                     colorLabel.style.marginTop = 2;
@@ -142,10 +119,11 @@ namespace Soso.UI.ColorPalette.Editor
                     // Selection
                     colorButton.clicked += () =>
                     {
+                        serializedProperty.serializedObject.Update();
                         colorIndexProp.intValue = index;
-                        serializedObject.ApplyModifiedProperties();
+                        serializedProperty.serializedObject.ApplyModifiedProperties();
 
-                        RefreshColorButtons(colorContainer, hexColors, index, colorIndexProp);
+                        RefreshColorButtons(serializedProperty, colorContainer, hexColors, index, colorIndexProp);
                     };
                 }
             }
