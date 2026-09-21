@@ -6,7 +6,8 @@ using UnityEngine;
 
 namespace Soso.UI.ColorPalette
 {
-	public class PalettedButton : SosoButton, IPaletteComponent
+	[RequireComponent(typeof(SosoButton))]
+	public class SosoButtonPalette : MonoBehaviour, IPaletteComponent
 	{
 		[SerializeField] private SosoColor _normalColor;
 		[SerializeField] private SosoColor _highlightedColor;
@@ -55,12 +56,36 @@ namespace Soso.UI.ColorPalette
 				return _selectedColor;
 			}
 		}
-		
-		protected override void OnValidate()
+
+		public SosoButton Button
 		{
-			base.OnValidate();
+			get
+			{
+				if (_button == null)
+				{
+					_button = GetComponent<SosoButton>();
+				}
+				return _button;
+			}
+		}
+		
+		private SosoButton _button;
+		
+		protected void OnValidate()
+		{
 			IPaletteComponent.Validate(this);
 			Refresh();
+		}
+
+		private void OnEnable()
+		{
+			Button.OnStateChanged.AddListener(OnStateChanged);
+			Refresh();
+		}
+
+		private void OnDisable()
+		{
+			Button.OnStateChanged.RemoveListener(OnStateChanged);
 		}
 
 		public void Refresh()
@@ -77,14 +102,18 @@ namespace Soso.UI.ColorPalette
 			yield return SelectedColor;
 		}
 		
-		protected override void StateChanged(SELECTION_STATE arg0, bool instant)
+		protected void OnStateChanged(SELECTION_STATE state)
 		{
 			Refresh();
 		}
 		
 		public Color GetColor()
 		{
-			switch (State)
+			if (_button == null)
+			{
+				_button = GetComponent<SosoButton>();
+			}
+			switch (_button.State)
 			{
 				case SELECTION_STATE.Normal:
 					return NormalColor.GetColor();
@@ -97,13 +126,13 @@ namespace Soso.UI.ColorPalette
 				case SELECTION_STATE.Disabled:
 					return DisabledColor.GetColor();
 				default:
-					throw new NotImplementedException($"What the heck is state {State}?");
+					throw new NotImplementedException($"What the heck is state {_button.State}?");
 			}
 		}
 		
 		public void SetColor(Color color)
 		{
-			targetGraphic.color = color;
+			Button.targetGraphic.color = color;
 		}
 	}
 }

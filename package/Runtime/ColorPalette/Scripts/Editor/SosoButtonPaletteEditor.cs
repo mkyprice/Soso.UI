@@ -1,17 +1,16 @@
-using Soso.UI.Core.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace Soso.UI.ColorPalette.Editor
 {
-	[CustomEditor(typeof(PalettedButton))]
+	[CustomEditor(typeof(SosoButtonPalette))]
 	[CanEditMultipleObjects]
-	public class PalettedButtonEditor : SosoButtonEditor
+	public class SosoButtonPaletteEditor : UnityEditor.Editor
 	{
 		public override VisualElement CreateInspectorGUI()
 		{
-			VisualElement root = base.CreateInspectorGUI();
+			VisualElement root = new VisualElement();
 
 			// Add colors
 			AddPaletteButton(root, "_normalColor", "Normal");

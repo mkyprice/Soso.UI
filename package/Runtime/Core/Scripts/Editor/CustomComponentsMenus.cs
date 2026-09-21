@@ -3,15 +3,15 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Soso.UI.ColorPalette.Editor
+namespace Soso.UI.Core.Editor
 {
 	public class CustomComponentsMenus
 	{
-		[MenuItem("GameObject/UI (Canvas)/Soso Paletted Button", false, 11)]
+		[MenuItem("GameObject/UI (Canvas)/Soso Button", false, 10)]
 		private static void CreateCustomGameObject(MenuCommand menuCommand)
 		{
-			GameObject go = new GameObject("Paletted Button", 
-				typeof(CanvasRenderer), typeof(Image), typeof(PalettedButton)
+			GameObject go = new GameObject("Soso Button", 
+				typeof(CanvasRenderer), typeof(Image), typeof(SosoButton)
 				);
 			
 			// Default to standard button size
