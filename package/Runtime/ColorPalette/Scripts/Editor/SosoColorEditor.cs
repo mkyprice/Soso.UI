@@ -18,6 +18,10 @@ namespace Soso.UI.ColorPalette.Editor
             // Props
             SerializedProperty colorIndexProp = serializedProperty.FindPropertyRelative("_colorIndex");
 
+            TextElement nameElement = new TextElement();
+            nameElement.text = serializedProperty.displayName;
+            root.Add(nameElement);
+            
             // Colors dropdown
             if (serializedProperty.boxedValue is SosoColor primaryPalette)
             {

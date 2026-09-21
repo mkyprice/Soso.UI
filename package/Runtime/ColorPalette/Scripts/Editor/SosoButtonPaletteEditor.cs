@@ -13,11 +13,11 @@ namespace Soso.UI.ColorPalette.Editor
 			VisualElement root = new VisualElement();
 
 			// Add colors
-			AddPaletteButton(root, "_normalColor", "Normal");
-			AddPaletteButton(root, "_highlightedColor", "Highlighted");
-			AddPaletteButton(root, "_pressedColor", "Pressed");
-			AddPaletteButton(root, "_selectedColor", "Selected");
-			AddPaletteButton(root, "_disabledColor", "Disabled");
+			AddPaletteButton(root, "_normalColor");
+			AddPaletteButton(root, "_highlightedColor");
+			AddPaletteButton(root, "_pressedColor");
+			AddPaletteButton(root, "_selectedColor");
+			AddPaletteButton(root, "_disabledColor");
 
 			// Add the palette
 			root.Add(new PropertyField(serializedObject.FindProperty("_colorPalette")));
@@ -40,12 +40,8 @@ namespace Soso.UI.ColorPalette.Editor
 			return root;
 		}
 
-		private void AddPaletteButton(VisualElement root, string propName, string tooltip)
+		private void AddPaletteButton(VisualElement root, string propName)
 		{
-			root.Add(new TextElement()
-			{
-				text = tooltip,
-			});
 			root.Add(new PropertyField(serializedObject.FindProperty(propName)));
 		}
 	}
