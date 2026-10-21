@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "com.chronicvagrant.soso-ui": "file:../../package",
+    "com.chronicvagrant.soso-ui.core": "file:../../core",
+    "com.chronicvagrant.soso-ui.animation": "file:../../animation",
+    "com.chronicvagrant.soso-ui.palette": "file:../../palette",
     "com.unity.ai.navigation": "2.0.14",
     "com.unity.collab-proxy": "2.13.6",
     "com.unity.ide.rider": "3.1.0",
@@ -11,6 +13,7 @@
     "com.unity.test-framework": "1.6.0",
     "com.unity.timeline": "1.8.13",
     "com.unity.ugui": "2.0.0",
+    "com.unity.upm-publishing-tools": "0.3.3",
     "com.unity.visualscripting": "1.9.12",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.adaptiveperformance": "1.0.0",

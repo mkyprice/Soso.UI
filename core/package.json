@@ -1,12 +1,13 @@
 {
-  "name": "com.chronicvagrant.soso-ui",
+  "name": "com.chronicvagrant.soso-ui.core",
   "version": "1.6.0",
-  "displayName": "Soso.UI",
+  "displayName": "Soso.UI.Core",
   "description": "UI library for animations and utilities",
   "unity": "6000.3",
   "author": {
-    "name": "Ky Price",
+    "name": "Chronic Vagrant",
     "email": "chronicvagrant@gmail.com",
     "url": "https://chronicvagrant.com"
-  }
+  },
+  "unityRelease": "23f1"
 }

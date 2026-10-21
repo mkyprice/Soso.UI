@@ -1,10 +1,26 @@
 {
   "dependencies": {
-    "com.chronicvagrant.soso-ui": {
-      "version": "file:../../package",
+    "com.chronicvagrant.soso-ui.animation": {
+      "version": "file:../../animation",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.chronicvagrant.soso-ui.core": "1.6.0"
+      }
+    },
+    "com.chronicvagrant.soso-ui.core": {
+      "version": "file:../../core",
       "depth": 0,
       "source": "local",
       "dependencies": {}
+    },
+    "com.chronicvagrant.soso-ui.palette": {
+      "version": "file:../../palette",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.chronicvagrant.soso-ui.core": "1.6.0"
+      }
     },
     "com.unity.ai.navigation": {
       "version": "2.0.14",
@@ -98,6 +114,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "17.3.0",
       "depth": 1,
@@ -146,6 +169,13 @@
         "com.unity.searcher": "4.9.3"
       }
     },
+    "com.unity.sharp-zip-lib": {
+      "version": "1.4.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.test-framework": {
       "version": "1.6.0",
       "depth": 0,
@@ -186,6 +216,16 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "com.unity.upm-publishing-tools": {
+      "version": "0.3.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sharp-zip-lib": "1.4.1",
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.visualscripting": {
       "version": "1.9.12",

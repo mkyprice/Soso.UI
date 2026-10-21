@@ -27,6 +27,9 @@ ISosoOperation, you must use SosoAwaitable. Check out SosoOperation.
 ## Installation
 Install via UPM by going to 'Package Manager' -> '+' -> 'Add package from git URL...' from the Unity Editor
 
-Note: use '?path=package'
+#### Installing each package:
+- '?path=core'
+- '?path=animation'
+- '?path=palette'
 
-Example: 'https://github.com/mkyprice/Soso.UI.git?path=package'
+Example: 'https://github.com/mkyprice/Soso.UI.git?path={packageName}'

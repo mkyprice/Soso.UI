@@ -1,0 +1,16 @@
+{
+  "name": "com.chronicvagrant.soso-ui.animation",
+  "version": "1.6.0",
+  "displayName": "Soso.UI.Animation",
+  "description": "UI library for animations and utilities",
+  "unity": "6000.3",
+  "author": {
+    "name": "Chronic Vagrant",
+    "email": "chronicvagrant@gmail.com",
+    "url": "https://chronicvagrant.com"
+  },
+  "dependencies": {
+    "com.chronicvagrant.soso-ui.core": "1.6.0"
+  },
+  "unityRelease": "23f1"
+}

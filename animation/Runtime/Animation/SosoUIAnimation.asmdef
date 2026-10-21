@@ -1,9 +1,8 @@
 {
-    "name": "SosoUIColorPalette",
-    "rootNamespace": "Soso.UI.ColorPalette",
+    "name": "SosoUIAnimation",
+    "rootNamespace": "Soso.UI.Animation",
     "references": [
-        "GUID:2581a3c65497b674db018b72b7d97a16",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "SosoUICore"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
